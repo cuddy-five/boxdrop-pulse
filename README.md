@@ -26,14 +26,24 @@ See `docs/architecture.md` and `docs/event-flow.md` for details.
 
 ## Quick start (local)
 1) Copy `.env.example` to `.env` and fill in values.
-2) Start services:
+2) Add your ngrok authtoken to `.env` (`NGROK_AUTHTOKEN=...`).
+3) Start services:
 
 ```bash
 docker compose --env-file .env -f infra/docker-compose.yml up -d
 ```
 
-3) Open Node-RED at `http://localhost:1880` and import flows from `flows/`.
-4) Configure webhook URLs in QBO and Twilio using your tunnel (ngrok or similar).
+4) Open Node-RED at `http://localhost:1880` and create a minimal webhook flow:
+   - `http in` POST `/webhooks/qbo` -> `debug`
+   - `http in` -> `function` -> `http response`
+   - Function body:
+     ```js
+     msg.statusCode = 200;
+     msg.payload = "ok";
+     return msg;
+     ```
+5) Open `http://localhost:4040` and copy the public ngrok URL.
+6) Configure webhook URLs in QBO and Twilio using your ngrok URL.
 
 ## Notes
 - QBO webhooks should respond fast (ack immediately, process async).

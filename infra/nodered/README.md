@@ -1,6 +1,7 @@
 # Node-RED data
 
-This directory will hold Node-RED runtime data once the container starts.
+This directory is kept for local dev convenience.
 
-- `data/` is ignored by git.
-- Import flows from `flows/` into Node-RED UI.
+- Node-RED uses the named volume `nodered_data` for persistence.
+- `data/` is ignored by git and can be used if switching back to bind mounts.
+- Import flows from `flows/` into the Node-RED UI.

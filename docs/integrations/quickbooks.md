@@ -1,9 +1,10 @@
 # QuickBooks Online (QBO)
 
 ## Webhooks
-- Subscribe to Payment, Invoice, or SalesReceipt changes.
+- Subscribe to Payment, Invoice, or SalesReceipt changes (Sales Receipt for now).
 - Validate `intuit-signature` header using the webhook verification token.
 - Acknowledge fast; do not block on downstream work.
+- Use `https://<ngrok-id>.ngrok.app/webhooks/qbo` or `https://<ngrok-id>.ngrok-free.dev/webhooks/qbo` during local dev.
 
 ## OAuth
 - Use OAuth2 authorization code flow.

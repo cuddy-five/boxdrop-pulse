@@ -2,17 +2,29 @@ version: "3.9"
 
 services:
   nodered:
-    image: nodered/node-red:3.1
+    image: nodered/node-red:latest
     ports:
       - "1880:1880"
     environment:
       - TZ=${TIMEZONE}
       - NODE_RED_ENABLE_PROJECTS=true
     volumes:
-      - ./nodered/data:/data
+      - nodered_data:/data
     depends_on:
       - postgres
       - redis
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: ngrok
+    depends_on:
+      - nodered
+    environment:
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    command: ["http", "nodered:1880"]
+    ports:
+      - "4040:4040"
+    restart: unless-stopped
 
   postgres:
     image: postgres:16
@@ -33,3 +45,6 @@ services:
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - ./redis/data:/data
+
+volumes:
+  nodered_data:
