@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+node_modules/
+infra/nodered/data/
+infra/postgres/data/
+infra/redis/data/
+*.log
+.DS_Store
