@@ -42,4 +42,3 @@ docker compose --env-file .env -f infra/docker-compose.yml up -d
 
 ## Next
 Start with `docs/requirements.md` and `docs/decisions.md` to finalize scope.
->>>>>>> a1e00eb (choose the local README.md and .gitignore over web-side)
