@@ -1,0 +1,11 @@
+[
+  {
+    "id": "d1e2f3a4b5c6d7e2",
+    "type": "comment",
+    "name": "Worker flow",
+    "info": "TODO: fetch QBO Payment/Invoice/Customer, write session, send SMS",
+    "x": 200,
+    "y": 80,
+    "wires": []
+  }
+]

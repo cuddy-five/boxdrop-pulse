@@ -1,0 +1,11 @@
+[
+  {
+    "id": "e2f3a4b5c6d7e8f3",
+    "type": "comment",
+    "name": "Inbound SMS handler",
+    "info": "TODO: parse rating, handle opt-out, branch to review or owner alert",
+    "x": 200,
+    "y": 80,
+    "wires": []
+  }
+]
